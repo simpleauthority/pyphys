@@ -51,37 +51,37 @@ def tick_arrow(obj, arrow_type, arrow_direction):
 
 
 # Create coordinate axes
-x_axis = cylinder(pos=vec(-5, 0, 0), axis=vec(10, 0, 0), radius=0.05)
+x_axis = cylinder(pos=vec(0, 0, 0), axis=vec(10, 0, 0), radius=0.05)
 label(pos=x_axis.pos + x_axis.axis, text='<i>x</i>', box=False)
-y_axis = cylinder(pos=vec(0, -5, 0), axis=vec(0, 10, 0), radius=0.05)
+y_axis = cylinder(pos=vec(0, 0, 0), axis=vec(0, 8, 0), radius=0.05)
 label(pos=y_axis.pos + y_axis.axis, text="<i>y</i>", box=False)
 
 # Define projectile object
-cow = sphere(pos=vec(0, 0, 0), color=vec(0, 0, 1), trail_color=vec(0, 0, 1), v=vec(3, -4, 0), a=vec(-1, 2, 0), radius=0.5, make_trail=True)
+# cow = sphere(pos=vec(0, 0, 0), color=vec(0, 0, 1), trail_color=vec(0, 0, 1), v=vec(3, -4, 0), a=vec(-1, 2, 0), radius=0.5, make_trail=True)
 
 # Set up velocity and acceleration tracking arrows on object
-arrows = create_arrows(cow)
+# arrows = create_arrows(cow)
 
 # Create a graph of the y component of velocity versus time
-graph(width=600, height=225, title="<b><i>v<sub>y</sub> vs <i>t</i></b>", xtitle="<i>t</i> (s)", ytitle="<i>v<sub>y</sub></i> (m)", foreground=vec(0, 0, 0), background=vec(1, 1, 1))
-v_yt_curve = gcurve(color=vec(0, 0.4, 1))
+# graph(width=600, height=225, title="<b><i>v<sub>y</sub> vs <i>t</i></b>", xtitle="<i>t</i> (s)", ytitle="<i>v<sub>y</sub></i> (m)", foreground=vec(0, 0, 0), background=vec(1, 1, 1))
+# v_yt_curve = gcurve(color=vec(0, 0.4, 1))
 
 # Define simulation variables
 t = 0  # time
 dt = 0.1  # time step
-sim_speed = 0.3  # speed of simulation used in calculating FPS
+sim_speed = 1  # speed of simulation used in calculating FPS
 
-while t < 5:
-    rate(sim_speed / dt)
-
-    cow.v += cow.a * dt  # update velocity (vf = vi + at)
-    cow.pos += cow.v * dt  # update position (xf = xi + vt)
-
-    tick_arrow(cow, 'v', 'x')
-    tick_arrow(cow, 'v', 'y')
-    tick_arrow(cow, 'a', 'x')
-    tick_arrow(cow, 'a', 'y')
-
-    v_yt_curve.plot(t, cow.v.y)
-
-    t += dt
+# while t < 5:
+#     rate(sim_speed / dt)
+#
+#     cow.v += cow.a * dt  # update velocity (vf = vi + at)
+#     cow.pos += cow.v * dt  # update position (xf = xi + vt)
+#
+#     tick_arrow(cow, 'v', 'x')
+#     tick_arrow(cow, 'v', 'y')
+#     tick_arrow(cow, 'a', 'x')
+#     tick_arrow(cow, 'a', 'y')
+#
+#     v_yt_curve.plot(t, cow.v.y)
+#
+#     t += dt
