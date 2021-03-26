@@ -18,7 +18,7 @@ def get_arrow_axis(obj, arrow_type, arrow_direction):
 
 def create_arrows(obj):
     v_color = vec(0, 0.4, 1)
-    a_color = vec(0.4, 0, 1)
+    a_color = vec(2, 0, 1)
 
     arrow_vx = arrow(pos=obj.pos, color=v_color)
     arrow_vx.axis = get_arrow_axis(obj, 'v', 'x')
@@ -53,6 +53,7 @@ def tick_arrow(obj, arrow_type, arrow_direction):
 # Create coordinate axes
 x_axis = cylinder(pos=vec(-5, 0, 0), axis=vec(10, 0, 0), radius=0.05)
 label(pos=x_axis.pos + x_axis.axis, text='<i>x</i>', box=False)
+
 y_axis = cylinder(pos=vec(0, -5, 0), axis=vec(0, 10, 0), radius=0.05)
 label(pos=y_axis.pos + y_axis.axis, text="<i>y</i>", box=False)
 
@@ -69,7 +70,7 @@ v_yt_curve = gcurve(color=vec(0, 0.4, 1))
 # Define simulation variables
 t = 0  # time
 dt = 0.1  # time step
-sim_speed = 0.3  # speed of simulation used in calculating FPS
+sim_speed = 1  # speed of simulation used in calculating FPS
 
 while t < 5:
     rate(sim_speed / dt)
